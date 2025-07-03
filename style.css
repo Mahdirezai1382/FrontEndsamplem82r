@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Dark mode (default) */
+    --bg-main: #232946;
+    --sidebar-bg: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%);
+    --sidebar-shadow: 2px 0 24px rgba(60, 60, 100, 0.15);
+    --sidebar-title: #fff;
+    --sidebar-link: #fff;
+    --sidebar-link-hover-bg: rgba(255, 255, 255, 0.25);
+    --sidebar-link-hover: #4e54c8;
+    --sidebar-options-bg: rgba(255, 255, 255, 0.15);
+    --close-color: #fff;
+    --close-hover: #ff3b3b;
+    --menu-bg: #fff;
+    --menu-color: #4e54c8;
+    --menu-hover-bg: #4e54c8;
+    --menu-hover-color: #fff;
+}
+
+body {
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    background: var(--bg-main);
+    color: var(--sidebar-title); /* White text for contrast */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.sidebar {
+    /*display: none;*/
+    /*opacity: 0;*/
+    background: var(--sidebar-bg);
+    box-shadow: var(--sidebar-shadow);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 320px;
+    max-width: 90vw;
+    height: 100vh;
+    /*background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%);*/
+    /*box-shadow: 2px 0 24px rgba(60, 60, 100, 0.15);*/
+    border-radius: 0 24px 24px 0;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    z-index: 10;
+    transition: transform 0.4s cubic-bezier(.4, 0, .2, 1);
+    transform: translateX(0);
+}
+
+.sidebar.closed {
+    transform: translateX(-110%);
+}
+
+.container {
+    position: relative;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    /*color: #fff;*/
+    color: var(--sidebar-title);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.close {
+    color: var(--close-color);
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 4px;
+    border-radius: 50%;
+}
+
+.close:hover {
+    color: var(--close-hover);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.options {
+    width: 100%;
+    /*background: rgba(255, 255, 255, 0.15);*/
+    background: var(--sidebar-options-bg);
+    border-radius: 16px;
+    padding: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.options li {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px; /* Match the a's border-radius */
+}
+
+.options a {
+    font-size: 1.5rem;
+    /*color: #fff;*/
+    color: var(--sidebar-link);
+    font-weight: 500;
+    padding: 12px 24px;
+    border-radius: 8px;
+    display: block;
+    transition: background 0.2s, color 0.2s, transform 0.1s;
+    letter-spacing: 1px;
+}
+
+.options a:hover {
+    background: var(--sidebar-link-hover-bg);
+    color: var(--sidebar-link-hover);
+    transform: translateX(8px) scale(1.05);
+    text-decoration: none;
+}
+
+.menu {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: 20;
+    background: var(--menu-bg);
+    color: var(--menu-color);
+    border: none;
+    font-size: 2rem;
+    padding: 12px;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(60, 60, 100, 0.10);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu:hover, .menu:focus {
+    background: var(--menu-hover-bg);
+    color: var(--menu-hover-color);
+    box-shadow: 0 4px 16px rgba(60, 60, 100, 0.18);
+    outline: none;
+}
+
+.menu.hide {
+    display: none;
+}
+
+body.light-mode {
+    --bg-main: #f4f6fb;
+    --sidebar-bg: linear-gradient(135deg, #e3f0ff 0%, #b6caff 100%);
+    --sidebar-shadow: 2px 0 24px rgba(120, 120, 180, 0.12);
+    --sidebar-title: #232946;
+    --sidebar-link: #232946;
+    --sidebar-link-hover-bg: rgba(76, 84, 200, 0.10);
+    --sidebar-link-hover: #4e54c8;
+    --sidebar-options-bg: rgba(76, 84, 200, 0.04);
+    --close-color: #232946;
+    --close-hover: #ff3b3b;
+    --menu-bg: #4e54c8;
+    --menu-color: #fff;
+    --menu-hover-bg: #fff;
+    --menu-hover-color: #4e54c8;
+}
