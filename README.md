@@ -1,2 +1,2 @@
-Preview\n
+Preview
 https://frontendsamplesm82r.liara.run/
