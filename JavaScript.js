@@ -3,7 +3,7 @@ let sideBar = document.querySelector('.sidebar');
 let close = document.querySelector('.close');
 
 // Open sidebar
-menu.addEventListener('click', (e) => {
+menu.addEventListener('mouseover', (e) => {
     e.preventDefault();
     menu.classList.add('hide');          // Hide menu button
     sideBar.classList.remove('closed');  // Slide sidebar in
@@ -12,7 +12,19 @@ menu.addEventListener('click', (e) => {
 });
 
 // Close sidebar
-close.addEventListener('click', (e) => {
+// close.addEventListener('click', (e) => {
+//
+// });
+
+const toggle = document.getElementById('toggle-theme');
+toggle.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+});
+
+
+// close side bar
+const sidebar = document.querySelector('.sidebar');
+sidebar.addEventListener('mouseleave', (e) => {
     e.preventDefault();
     sideBar.classList.add('closed');
     document.body.style.overflow = '';
@@ -20,10 +32,4 @@ close.addEventListener('click', (e) => {
     setTimeout(() => {
         menu.classList.remove('hide');
     }, 400);
-});
-
-const toggle = document.getElementById('toggle-theme');
-toggle.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-});
-
+})
