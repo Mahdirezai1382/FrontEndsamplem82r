@@ -12,9 +12,15 @@ menu.addEventListener('mouseover', (e) => {
 });
 
 // Close sidebar
-// close.addEventListener('click', (e) => {
-//
-// });
+close.addEventListener('click', (e) => {
+    e.preventDefault();
+    sideBar.classList.add('closed');
+    document.body.style.overflow = '';
+
+    setTimeout(() => {
+        menu.classList.remove('hide');
+    }, 400);
+});
 
 const toggle = document.getElementById('toggle-theme');
 toggle.addEventListener('click', () => {
