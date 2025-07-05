@@ -20,6 +20,15 @@
     --menu-color: #4e54c8;
     --menu-hover-bg: #4e54c8;
     --menu-hover-color: #fff;
+
+    /* Question component variables */
+    --question-bg: rgba(255, 255, 255, 0.95);
+    --question-border: rgba(78, 84, 200, 0.2);
+    --question-shadow: 0 8px 32px rgba(78, 84, 200, 0.12);
+    --question-text: #232946;
+    --question-title-bg: rgba(78, 84, 200, 0.05);
+    --question-title-hover-bg: rgba(78, 84, 200, 0.1);
+    --question-detail-bg: rgba(255, 255, 255, 0.8);
 }
 
 body {
@@ -156,6 +165,160 @@ a {
     display: none;
 }
 
+.Question {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: min(30vh, 120px);
+    padding: 0 16px;
+    gap: 24px;
+}
+
+
+.qBox{
+    display: flex;
+    flex-direction: column;
+    background: var(--question-bg);
+    border: 1px solid var(--question-border);
+    border-radius: 16px;
+    box-shadow: var(--question-shadow);
+    color: var(--question-text);
+    width: min(90vw, 600px);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.qBox:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 48px rgba(78, 84, 200, 0.18);
+}
+
+.qTitle{
+    background: var(--question-title-bg);
+    border-bottom: 1px solid var(--question-border);
+    padding: 16px 24px;
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    position: relative;
+
+}
+.qTitle:hover{
+    background: var(--question-title-hover-bg);
+    transform: translateX(4px);
+}
+
+.qTitle::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #4e54c8, #8f94fb);
+    transition: width 0.3s ease-in-out;
+}
+
+.qTitle:hover::after{
+    width: 100%;
+}
+
+.qDetail{
+    background: var(--question-detail-bg);
+    padding: 0 24px;
+    margin: 0;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    /* Hide by default */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out, padding 0.4s ease-in-out;
+    /*padding-top: 0;*/
+    /*padding-bottom: 0;*/
+}
+
+.qBox:hover .qDetail{
+    /* Show on hover */
+    max-height: 500px; /* Adjust based on your content */
+    opacity: 1;
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+.qDetail ul {
+    margin: 16px 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.qDetail li {
+    position: relative;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    border-left: 3px solid transparent;
+    /*transform: translate3d(0, 0, 0);*/
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    transform: translate3d(-20px, 0, 0);
+}
+
+.qBox:hover .qDetail li:nth-child(1) {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition-delay: 0.1s;
+}
+
+.qBox:hover .qDetail li:nth-child(2) {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition-delay: 0.2s;
+}
+
+.qBox:hover .qDetail li:nth-child(3) {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition-delay: 0.3s;
+}
+
+.qBox:hover .qDetail li:nth-child(4) {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition-delay: 0.4s;
+}
+
+.qBox:hover .qDetail li:nth-child(5) {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition-delay: 0.5s;
+}
+
+.qDetail li strong {
+    color: #4e54c8;
+    font-weight: 600;
+}
+
+/* Light mode support */
+body.light-mode .qDetail ul {
+    /* Light mode styles if needed */
+}
+
+body.light-mode .qDetail li {
+    background: rgba(78, 84, 200, 0.05);
+    border-left-color: transparent;
+}
+
+body.light-mode .qDetail li:hover {
+    background: rgba(78, 84, 200, 0.1);
+    border-left-color: #4e54c8;
+}
+
 body.light-mode {
     --bg-main: #f4f6fb;
     --sidebar-bg: linear-gradient(135deg, #e3f0ff 0%, #b6caff 100%);
@@ -171,4 +334,13 @@ body.light-mode {
     --menu-color: #fff;
     --menu-hover-bg: #fff;
     --menu-hover-color: #4e54c8;
+
+    /* Question component light mode */
+    --question-bg: #ffffff;
+    --question-border: rgba(78, 84, 200, 0.15);
+    --question-shadow: 0 8px 32px rgba(78, 84, 200, 0.08);
+    --question-text: #232946;
+    --question-title-bg: rgba(78, 84, 200, 0.03);
+    --question-title-hover-bg: rgba(78, 84, 200, 0.08);
+    --question-detail-bg: #ffffff;
 }
