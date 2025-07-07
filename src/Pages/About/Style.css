@@ -1,0 +1,268 @@
+/* ------------- Keyframe Animations ------------- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 5px var(--accent-primary); }
+    50% { box-shadow: 0 0 20px var(--accent-primary), 0 0 30px var(--accent-primary); }
+}
+
+/* ------------- Main Container ------------- */
+.about {
+    width: 80vw;
+    height: 80vh;
+    margin: 10vh auto;
+    display: flex;
+    gap: 2rem;
+    align-items: stretch;
+
+    /* Enhanced styling */
+    background: var(--gradient-primary);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+    box-sizing: border-box;
+
+    /* Entrance animation */
+    animation: fadeIn 0.8s ease forwards;
+
+    /* Subtle hover effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl), 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* ------------- Image Column ------------- */
+.about__figure {
+    flex: 1 1 280px;
+    max-width: 35%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 0.75rem;
+
+    /* Entrance animation with delay */
+    animation: slideFromLeft 0.6s ease 0.2s both;
+}
+
+.about__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+    box-shadow: var(--shadow-lg);
+
+    /* Smooth hover transitions */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.3s ease;
+}
+
+.about__img:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-xl);
+    filter: brightness(1.1) saturate(1.1);
+}
+
+/* ------------- Content Column ------------- */
+.about__content {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    background: var(--surface-primary);
+    border: 1px solid var(--border-medium);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-md);
+    padding: 1.5rem;
+    overflow: hidden;
+
+    /* Entrance animation with delay */
+    animation: fadeIn 0.6s ease 0.4s both;
+
+    /* Backdrop blur for glass effect */
+    backdrop-filter: blur(10px);
+}
+
+/* ------------- Enhanced Tabs ------------- */
+.about__tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background: var(--surface-secondary);
+    border-radius: 0.5rem;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.about__tab {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid transparent;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+
+    /* Smooth transitions */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about__tab::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.about__tab:hover::before {
+    left: 100%;
+}
+
+.about__tab:hover {
+    transform: translateY(-2px);
+    background: var(--interactive-hover);
+    color: var(--text-primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.about__tab[aria-selected="true"] {
+    background: var(--accent-primary);
+    color: var(--text-primary);
+    border-color: var(--accent-primary-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* ------------- Enhanced Panels ------------- */
+.about__panel {
+    flex-grow: 1;
+    overflow-y: auto;
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: var(--surface-secondary);
+
+    /* Panel transition animations */
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeIn 0.4s ease 0.1s forwards;
+}
+
+.about__panel:not([hidden]) {
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.about__panel h3 {
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.about__panel h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-primary);
+    animation: expandLine 0.8s ease 0.2s forwards;
+}
+
+@keyframes expandLine {
+    to { width: 60px; }
+}
+
+.about__panel p {
+    text-align: justify;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeIn 0.6s ease 0.3s forwards;
+}
+
+/* ------------- Scrollbar Styling ------------- */
+.about__panel::-webkit-scrollbar {
+    width: 6px;
+}
+
+.about__panel::-webkit-scrollbar-track {
+    background: var(--surface-primary);
+    border-radius: 3px;
+}
+
+.about__panel::-webkit-scrollbar-thumb {
+    background: var(--accent-primary);
+    border-radius: 3px;
+    transition: background 0.3s ease;
+}
+
+.about__panel::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-primary-hover);
+}
+
+/* ------------- Responsive Improvements ------------- */
+@media (max-width: 768px) {
+    .about {
+        width: 95vw;
+        height: auto;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .about__figure {
+        max-width: 100%;
+        height: 200px;
+    }
+
+    .about__tabs {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .about__tab {
+        text-align: center;
+    }
+}
+
+/* ------------- Loading States ------------- */
+.about--loading .about__panel {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.about--loading .about__tab {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

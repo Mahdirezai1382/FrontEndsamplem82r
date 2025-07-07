@@ -48,6 +48,7 @@ export default function SideBar() {
     background: var(--sidebar-bg);
     box-shadow: var(--sidebar-shadow);
     position: fixed;
+    height: 100vh;
     left: 0;
     top: 0;
     width: 320px;
@@ -410,6 +411,6 @@ export default function SideBar() {
     })
 
     about.addEventListener('click', () => {
-        location.href = 'About.html';
+        location.href = '../../Pages/About/index.html';
     })
 }

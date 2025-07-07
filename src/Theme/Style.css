@@ -7,7 +7,7 @@
 body {
     font-family: 'Segoe UI', 'Arial', sans-serif;
     background: var(--bg-main);
-    color: var(--sidebar-title); /* White text for contrast */
+    color: var(--text-primary); /* Updated to use proper text color */
 }
 
 a {
@@ -93,18 +93,16 @@ a {
     --gradient-success: linear-gradient(90deg, rgba(72, 187, 120, 0.2), rgba(56, 178, 172, 0.2));
 }
 
-
-
-
+/* === ENHANCED LIGHT MODE THEME === */
 body.light-mode {
     /* === CORE COLORS === */
-    --bg-main: #f8fafb;
-    --surface-primary: #f1f4f6;
-    --surface-secondary: #e8ecf0;
-    --surface-accent: #dde4ea;
+    --bg-main: #fafbfc;
+    --surface-primary: #ffffff;
+    --surface-secondary: #f8f9fa;
+    --surface-accent: #f1f3f5;
 
     /* === TEXT COLORS === */
-    --text-primary: #1a202c;
+    --text-primary: #1a1d29;
     --text-secondary: #4a5568;
     --text-muted: #718096;
 
@@ -117,22 +115,22 @@ body.light-mode {
     --accent-error: #dc2626;
 
     /* === INTERACTIVE STATES === */
-    --interactive-bg: rgba(79, 70, 229, 0.06);
+    --interactive-bg: rgba(79, 70, 229, 0.08);
     --interactive-hover: rgba(79, 70, 229, 0.12);
-    --interactive-active: rgba(79, 70, 229, 0.18);
+    --interactive-active: rgba(79, 70, 229, 0.16);
 
     /* === SHADOWS & BORDERS === */
-    --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+    --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
     --shadow-md: 0 4px 24px rgba(15, 23, 42, 0.08);
     --shadow-lg: 0 8px 32px rgba(15, 23, 42, 0.12);
     --shadow-xl: 0 16px 48px rgba(15, 23, 42, 0.16);
 
     --border-light: rgba(15, 23, 42, 0.08);
     --border-medium: rgba(15, 23, 42, 0.12);
-    --border-strong: rgba(15, 23, 42, 0.18);
+    --border-strong: rgba(15, 23, 42, 0.16);
 
     /* === SIDEBAR SPECIFIC === */
-    --sidebar-bg: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+    --sidebar-bg: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
     --sidebar-shadow: var(--shadow-lg);
     --sidebar-title: var(--text-primary);
     --sidebar-link: var(--text-secondary);
@@ -154,4 +152,22 @@ body.light-mode {
     --question-title-bg: var(--interactive-bg);
     --question-title-hover-bg: var(--interactive-hover);
     --question-detail-bg: var(--surface-secondary);
+
+    /* === QUESTION LIST STYLING === */
+    --list-bg: rgba(79, 70, 229, 0.04);
+    --list-item-bg: var(--surface-primary);
+    --list-item-hover: var(--interactive-hover);
+    --list-border: var(--border-medium);
+    --list-bullet: var(--accent-primary);
+    --list-bullet-hover: var(--accent-success);
+
+    /* === GLASS MORPHISM EFFECTS === */
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(15, 23, 42, 0.1);
+    --glass-shadow: var(--shadow-lg);
+
+    /* === GRADIENT OVERLAYS === */
+    --gradient-primary: linear-gradient(135deg, rgba(79, 70, 229, 0.06) 0%, rgba(99, 102, 241, 0.03) 100%);
+    --gradient-accent: linear-gradient(90deg, transparent, rgba(79, 70, 229, 0.08), transparent);
+    --gradient-success: linear-gradient(90deg, rgba(5, 150, 105, 0.06), rgba(6, 182, 212, 0.06));
 }

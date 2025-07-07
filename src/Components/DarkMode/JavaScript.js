@@ -7,7 +7,7 @@ export default function DarkMode() {
 </svg>
 </button>`);
 
-    var style = document.createElement('style');
+    let style = document.createElement('style');
     style.textContent = `
 @import url("../../Theme/Style.css");
 
