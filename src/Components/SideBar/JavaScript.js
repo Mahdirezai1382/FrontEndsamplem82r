@@ -13,7 +13,7 @@ export default function SideBar() {
     <div class="container">
         <ul class="options">
             <li>
-                <a href="#">Home</a>
+                <a href="#" id="Home">Home</a>
             </li>
             <li>
                 <a href="#" id="About">About</a>
@@ -413,4 +413,9 @@ export default function SideBar() {
     about.addEventListener('click', () => {
         location.href = '../../Pages/About/index.html';
     })
+    const Home = document.querySelector('#Home');
+    Home.addEventListener('click', () => {
+        location.href = '../../Pages/Home/index.html';
+    })
+
 }
