@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Review</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+<!-- REVIEW SECTION -->
+<section class="review" id="review">
+    <header class="review__header">
+        <h2>Our Reviews</h2>
+        <p class="review__subtitle">What our customers say about us</p>
+    </header>
+
+    <div class="review__container">
+        <article class="review__card" role="region" aria-label="Customer review">
+            <div class="review__avatar">
+                <img src="../../img/About.jpg" alt="Customer profile picture" class="review__img">
+            </div>
+
+            <div class="review__content">
+                <blockquote class="review__text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur eaque enim expedita natus, odit reiciendis repellendus saepe sint soluta voluptate.
+                </blockquote>
+
+                <div class="review__author">
+                    <h3 class="review__name">Lorem ipsum dolor sit amet</h3>
+                    <p class="review__position">Lorem ipsum dolor</p>
+                </div>
+            </div>
+
+            <div class="review__controls">
+                <button class="review__arrow review__arrow--prev"
+                        aria-label="Previous review"
+                        data-direction="prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m15 18-6-6 6-6"/>
+                    </svg>
+                </button>
+
+                <button class="review__arrow review__arrow--next"
+                        aria-label="Next review"
+                        data-direction="next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                </button>
+            </div>
+
+<!--            <div class="review__cta">-->
+<!--                <button class="review__subscribe" data-action="subscribe">-->
+<!--                    Subscribe Me-->
+<!--                </button>-->
+<!--            </div>-->
+        </article>
+    </div>
+</section>
+
+<script type="module" src="JavaScript.js"></script>
+
+</body>
+</html>

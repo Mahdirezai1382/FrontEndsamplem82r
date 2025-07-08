@@ -1,0 +1,365 @@
+@import url(../../Theme/Style.css);
+
+/* ------------- Keyframe Animations ------------- */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* ------------- Main Container ------------- */
+.review {
+    max-width: 80vw;
+    max-height: 100vh;              /* Limit to viewport height */
+    margin: 2rem auto;              /* Reduced from 4rem */
+    padding: 1.5rem;               /* Reduced from 2rem */
+    background: var(--gradient-primary);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-xl);
+    overflow-y: auto;               /* Allow scrolling if content overflows */
+    box-sizing: border-box;         /* Include padding in height calculation */
+
+    /* Entrance animation */
+    animation: slideInUp 0.8s ease forwards;
+}
+
+/* ------------- Header ------------- */
+.review__header {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeInScale 0.6s ease 0.2s both;
+}
+
+.review__header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.review__header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--accent-primary);
+    border-radius: 2px;
+}
+
+.review__subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+/* ------------- Review Container ------------- */
+.review__container {
+    display: flex;
+    justify-content: center;
+    animation: fadeInScale 0.6s ease 0.4s both;
+}
+
+/* ------------- Review Card ------------- */
+.review__card {
+    background: var(--surface-primary);
+    border: 1px solid var(--border-medium);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    /* Glass effect */
+    backdrop-filter: blur(10px);
+
+    /* Hover effects */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review__card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.review__card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s;
+}
+
+.review__card:hover::before {
+    left: 100%;
+}
+
+/* ------------- Avatar Section ------------- */
+.review__avatar {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.review__img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-primary);
+    box-shadow: var(--shadow-md);
+
+    /* Hover animation */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review__img:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-lg);
+    animation: pulse 2s infinite;
+}
+
+/* ------------- Content Section ------------- */
+.review__content {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.review__text {
+    /*font-size: 1.1rem;*/
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin-bottom: 1.2rem;
+    position: relative;
+    font-style: italic;
+}
+
+
+.review__text::before {
+    top: -10px;
+    left: -20px;
+}
+
+.review__text::after {
+    bottom: -30px;
+    right: -10px;
+}
+
+.review__author {
+    margin-top: 1rem;
+}
+
+.review__name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.review__position {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+/* ------------- Controls Section ------------- */
+.review__controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.review__arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-primary);
+    background: var(--surface-secondary);
+    color: var(--accent-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    /* Smooth transitions */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.review__arrow:hover {
+    background: var(--accent-primary);
+    color: var(--text-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.review__arrow:active {
+    transform: translateY(0);
+}
+
+.review__arrow svg {
+    transition: transform 0.2s ease;
+}
+
+.review__arrow:hover svg {
+    transform: scale(1.2);
+}
+
+/* ------------- CTA Section ------------- */
+.review__cta {
+    text-align: center;
+}
+
+.review__subscribe {
+    padding: 0.5rem 2rem;
+    background: var(--accent-primary);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+
+    /* Smooth transitions */
+    transition: all 0.3s ease;
+}
+
+.review__subscribe::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.review__subscribe:hover::before {
+    left: 100%;
+}
+
+.review__subscribe:hover {
+    background: var(--accent-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.review__subscribe:active {
+    transform: translateY(0);
+}
+
+/* ------------- Responsive Design ------------- */
+@media (max-width: 768px) {
+    .review {
+        max-width: 95vw;
+        margin: 2rem auto;
+        padding: 1.5rem;
+    }
+
+    .review__header h2 {
+        font-size: 2rem;
+    }
+
+    .review__card {
+        padding: 1.5rem;
+    }
+
+    .review__text {
+        font-size: 1rem;
+    }
+
+    .review__controls {
+        gap: 0.5rem;
+    }
+
+    .review__arrow {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .review__header h2 {
+        font-size: 1.5rem;
+    }
+
+    .review__text::before,
+    .review__text::after {
+        font-size: 2rem;
+    }
+
+    .review__subscribe {
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ------------- Loading States ------------- */
+.review--loading .review__card {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.review--loading .review__arrow {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ------------- Accessibility ------------- */
+@media (prefers-reduced-motion: reduce) {
+    .review,
+    .review__header,
+    .review__container,
+    .review__card,
+    .review__img {
+        animation: none;
+    }
+
+    .review__arrow,
+    .review__subscribe {
+        transition: none;
+    }
+}
+
+/* ------------- Focus States ------------- */
+.review__arrow:focus-visible,
+.review__subscribe:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
