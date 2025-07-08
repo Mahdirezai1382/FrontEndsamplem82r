@@ -19,6 +19,9 @@ export default function SideBar() {
                 <a href="#" id="About">About</a>
             </li>
             <li>
+                <a href="#" id="Review">Review</a>
+            </li>
+            <li>
                 <a href="#">Project</a>
             </li>
             <li>
@@ -413,9 +416,13 @@ export default function SideBar() {
     about.addEventListener('click', () => {
         location.href = '../../Pages/About/index.html';
     })
-    const Home = document.querySelector('#Home');
+    const Home = document.querySelector('#HomeS');
     Home.addEventListener('click', () => {
         location.href = '../../Pages/Home/index.html';
     })
 
+    const Review = document.querySelector('#Review');
+    Review.addEventListener('click', () => {
+        location.href = '../../Pages/Review/index.html';
+    })
 }
