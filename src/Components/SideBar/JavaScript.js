@@ -416,7 +416,7 @@ export default function SideBar() {
     about.addEventListener('click', () => {
         location.href = '../../Pages/About/index.html';
     })
-    const Home = document.querySelector('#HomeS');
+    const Home = document.querySelector('#Home');
     Home.addEventListener('click', () => {
         location.href = '../../Pages/Home/index.html';
     })

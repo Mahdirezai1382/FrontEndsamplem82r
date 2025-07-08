@@ -1,8 +1,11 @@
 import DarkMode from "../../Components/DarkMode/JavaScript.js";
 import SideBar from "../../Components/SideBar/JavaScript.js";
+import LoginButton from "../../Components/Login/Login.js";
+
 
 DarkMode();
 SideBar();
+LoginButton();
 
 // local review data
 
